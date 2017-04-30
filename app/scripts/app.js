@@ -1,29 +1,37 @@
 import store from "./store.js";
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import AppRoot from "./components/app_root.js";
-import About from "./components/about.js";
-import Contact from "./components/contact.js";
+import Header from './components/header.js';
+import EnterPost from './components/enter-post.js';
 
-const Nav = () => (
-  <nav>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/contact-us">Contact</Link></li>
-  </nav>
-);
+
 
 export default function app() {
+    function classNames(location) {
+        let classes = ['page-wrapper'];
+        if (location.pathname === '/' || location.pathname === '') {
+            classes.push('home-view');
+        }else {
+            classes.push(location.pathname.slice(1, location.pathname.length));
+        }
+        return classes.join('');
+    }
   render(
     <Provider store={store}>
       <Router>
-        <div>
-          <Nav />
-          <Route exact path="/" component={AppRoot} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact-us" component={Contact} />
-        </div>
+        <Route
+            render = {({ location }) => {
+                return (
+                    <div className = {classNames(location)}>
+                        <Header />
+                            <Route exact path = '/' component={EnterPost} />
+                    </div>
+                );
+            }}
+        />
+
       </Router>
     </Provider>,
     document.getElementById("app")

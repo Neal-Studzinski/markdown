@@ -1,14 +1,22 @@
-export default function AppReducer(state, action) {
-  if (state === undefined) {
-    return {};
+let initialState = {
+    savedPosts: [],
+    draft: ''
+};
+
+export default function AppReducer(currentState, action) {
+  if (currentState === undefined) {
+    return initialState;
   }
 
   switch (action.type) {
-    case "TEST_REDUCER":
+    case "UPDATE_DRAFT":
+        var newState = {
+            draft:action.rawText
+        };
       // DELETE OR CHANGE ME: I AM JUST AN EXAMPLE
-      return Object.assign({}, state, { newData: action.data });
+      return Object.assign({}, currentState, newState);
   }
 
-  console.log("Unhandled State!");
-  return state;
+  
+  return currenState;
 }
