@@ -1,20 +1,42 @@
-$big-font: 15rem;
 
-.jumbo {
-    color: #333;
-    font-size: $big-font;
-    margin: 0;
-    text-shadow: 1px 2px 1px #DEDEDE, 2px 3px 0 #FEFEFE, -1px -1px 0 #222;
+
+.page-wrapper {
+    padding: 2rem;
+    position: relative;
+    min-height: 100vh;
 }
 
-html {
-    body {
-        margin: 0;
-        padding: 0;
-        background: #CACACA;
-    }
+.post-editor {
+    background: #fff;
+    max-width: 120rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    padding: 2rem 2rem 6rem 2rem;
+
 }
 
-.active {
-    font-weight: bold;
+.editor-container {
+    display: flex;
+}
+
+.post-entry {
+    flex: 1;
+    margin-right: 1rem;
+    display: block;
+}
+
+.markdown-preview-section {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.post-input {
+    display: block;
+    font-family: monospace;
+    width: 100%;
+}
+
+.page-header {
+    text-align: center;
+
 }
