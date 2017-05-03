@@ -15,7 +15,7 @@ class EnterPost extends React.Component {
 
     enterText(e) {
         this.auto_grow(e.target);
-        
+
         this.props.dispatch({ type: 'UPDATE_DRAFT', rawText: e.target.value });
     }
 
@@ -64,6 +64,7 @@ class EnterPost extends React.Component {
                 <div className = 'editor-container'>
                     <section className = 'post-entry'>
                         <textarea
+                            value = {this.props.draft}
                             className = 'post-input'
                             onChange = {this.enterText}
                             id = 'post-raw-text'

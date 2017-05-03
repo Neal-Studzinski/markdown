@@ -51,8 +51,8 @@ export default function AppReducer(currentState, action) {
 
     case 'EMPTY_MARKDOWN_NOTES':
         var newState = {
-            draft : '',
-            markdownPreview : ''
+            draft : ''
+
         };
         return Object.assign({}, currentState, newState)
 
